@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#f0f0f0">
+
+    <!-- Título de la pantalla -->
+    <TextView
+        android:id="@+id/matchTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marcador"
+        android:textSize="24sp"
+        android:textColor="#333333"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Botones para sumar puntos -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:id="@+id/player1AddPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Añadir punto Local"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_background"/>
+
+        <Button
+            android:id="@+id/player2AddPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Añadir punto Visitante"
+            android:background="@drawable/button_background"/>
+    </LinearLayout>
+
+    <!-- Tabla de puntos -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <!-- Puntos para el jugador 1 (Local) -->
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="64dp"
+            android:gravity="center"
+            android:orientation="vertical"> <!-- Espacio entre columnas -->
+
+            <TextView
+                android:id="@+id/player1Point1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="1"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player1Point2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="2"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player1Point3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="3"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player1Point4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="4"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player1Point5"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="5"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player1Point6"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="6"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player1Point7"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="7"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player1Point8"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="8"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player1Point9"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="9"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player1Point10"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="10"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player1Point11"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="11"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player1Point12"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="12"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player1Point13"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="13"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Puntos para el jugador 2 (Visitante) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/player2Point1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="1"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player2Point2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="2"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player2Point3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="3"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player2Point4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="4"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player2Point5"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="5"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player2Point6"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="6"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player2Point7"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="7"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player2Point8"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="8"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player2Point9"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="9"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player2Point10"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="10"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player2Point11"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="11"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player2Point12"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="12"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/player2Point13"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="13"
+                android:textSize="16sp" />
+        </LinearLayout>
+        <!-- Layout para los botones de reinicio -->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/resetButtonsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/restartGameButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_background"
+            android:text="Volver al sorteo" />
+
+        <Button
+            android:id="@+id/resetPointsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:text="Resetear puntos" />
+    </LinearLayout>
+</LinearLayout>

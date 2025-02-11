@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#f0f0f0"
+    android:gravity="center_vertical">
+
+    <!-- Título o Instrucciones -->
+    <TextView
+        android:id="@+id/instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Introduce el número de jugadores:"
+        android:textSize="20sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"/>
+
+    <!-- Campo para ingresar el número de jugadores -->
+
+    <!-- Botón para calcular -->
+    <EditText
+        android:id="@+id/playerCountEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@android:drawable/progress_horizontal"
+        android:gravity="center"
+        android:hint="Número de jugadores"
+        android:inputType="number"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calcular"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:background="@android:drawable/dark_header"/>
+
+    <!-- Texto de Dupletas -->
+    <TextView
+        android:id="@+id/dupletTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dupletas: "
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:layout_marginTop="24dp"
+        android:visibility="gone"
+        android:gravity="center"/>
+
+    <!-- Texto de Tripletas -->
+    <TextView
+        android:id="@+id/tripletTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tripletas: "
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        android:gravity="center"/>
+
+    <!-- Botón "De acuerdo" para mostrar resultados -->
+    <Button
+        android:id="@+id/agreeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="De acuerdo"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:visibility="gone"/>
+
+    <!-- Botón Salir de la app -->
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:background="@android:drawable/dark_header"
+        android:text="Salir"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+</LinearLayout>
