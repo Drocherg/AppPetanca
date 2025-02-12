@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#f0f0f0">
+    android:background="@drawable/background_gradient">
 
     <!-- Título de la pantalla -->
     <TextView
@@ -31,14 +31,14 @@
             android:layout_height="wrap_content"
             android:text="Añadir punto Local"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/button_background"/>
+            android:backgroundTint="#4CAF50"/>
 
         <Button
             android:id="@+id/player2AddPoint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Añadir punto Visitante"
-            android:background="@drawable/button_background"/>
+            android:backgroundTint="#4CAF50"/>
     </LinearLayout>
 
     <!-- Tabla de puntos -->
@@ -50,11 +50,10 @@
 
         <!-- Puntos para el jugador 1 (Local) -->
         <LinearLayout
-            android:layout_width="40dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginEnd="64dp"
             android:gravity="center"
-            android:orientation="vertical"> <!-- Espacio entre columnas -->
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/player1Point1"
@@ -341,14 +340,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/button_background"
+            android:backgroundTint="#4CAF50"
             android:text="Volver al sorteo" />
 
         <Button
             android:id="@+id/resetPointsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_background"
+            android:backgroundTint="#4CAF50"
             android:text="Resetear puntos" />
+
     </LinearLayout>
 </LinearLayout>

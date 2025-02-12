@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primary">#FF9800</color> <!-- Naranja intenso -->
+    <color name="primaryDark">#F57C00</color> <!-- Naranja oscuro -->
+    <color name="accent">#4CAF50</color> <!-- Verde vibrante -->
+    <color name="background">#FFF3E0</color> <!-- Fondo cálido -->
+    <color name="textColor">#212121</color> <!-- Texto oscuro -->
+    <color name="buttonColor">#03A9F4</color> <!-- Azul brillante -->
+
 </resources>

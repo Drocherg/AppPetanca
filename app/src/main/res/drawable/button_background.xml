@@ -1,4 +1,15 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#6200EE"/>
-    <corners android:radius="8dp"/>
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="#FFA726"/> <!-- Naranja más oscuro al presionar -->
+            <corners android:radius="16dp"/>
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <gradient android:startColor="#FF9800" android:endColor="#FB8C00" android:angle="45"/>
+            <corners android:radius="16dp"/>
+            <padding android:left="16dp" android:right="16dp" android:top="8dp" android:bottom="8dp"/>
+        </shape>
+    </item>
+</selector>

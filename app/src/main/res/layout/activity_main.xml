@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#f0f0f0"
+    android:background="@drawable/background_gradient"
     android:gravity="center_vertical">
 
     <!-- Título o Instrucciones -->
@@ -13,10 +13,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Introduce el número de jugadores:"
-        android:textSize="20sp"
-        android:textColor="#333333"
-        android:layout_marginBottom="8dp"
+        android:textSize="22sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4"
         android:gravity="center"/>
+
+
 
     <!-- Campo para ingresar el número de jugadores -->
 
@@ -26,13 +32,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:background="@android:drawable/progress_horizontal"
+        android:background="@null"
         android:gravity="center"
         android:hint="Número de jugadores"
         android:inputType="number"
-        android:padding="10dp"
+        android:padding="12dp"
         android:textColor="#FFFFFF"
-        android:textSize="16sp" />
+        android:textSize="18sp"
+        android:textColorHint="#B0B0B0"
+        android:elevation="4dp"
+        android:textStyle="bold"
+        android:drawablePadding="10dp" />
+
+
+
 
     <Button
         android:id="@+id/calculateButton"
@@ -43,7 +56,7 @@
         android:textColor="#ffffff"
         android:layout_marginTop="16dp"
         android:layout_gravity="center"
-        android:background="@android:drawable/dark_header"/>
+        android:backgroundTint="#4CAF50"/>
 
     <!-- Texto de Dupletas -->
     <TextView
@@ -79,7 +92,7 @@
         android:textColor="#ffffff"
         android:layout_marginTop="24dp"
         android:layout_gravity="center"
-        android:background="@android:drawable/screen_background_light_transparent"
+        android:backgroundTint="#4CAF50"
         android:visibility="gone"/>
 
     <!-- Botón Salir de la app -->
@@ -89,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="24dp"
-        android:background="@android:drawable/dark_header"
+        android:backgroundTint="#4CAF50"
         android:text="Salir"
         android:textColor="#ffffff"
         android:textSize="18sp" />

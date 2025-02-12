@@ -1,6 +1,5 @@
 package com.example.apppetanca;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,85 +8,117 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText playerCountEditText;
-    private Button calculateButton, agreeButton;
-    private TextView dupletTextView, tripletTextView;
+    private Button calculateButton, agreeButton, exitButton;
+    private TextView dupletTextView, tripletTextView, instructionTextView;
+
+    // Instancia del ViewModel
+    private MainViewModel mainViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Vincular las vistas
         playerCountEditText = findViewById(R.id.playerCountEditText);
         calculateButton = findViewById(R.id.calculateButton);
-        agreeButton = findViewById(R.id.agreeButton);
         dupletTextView = findViewById(R.id.dupletTextView);
         tripletTextView = findViewById(R.id.tripletTextView);
-        // Botón Salir
-        Button exitButton = findViewById(R.id.exitButton);
+        instructionTextView = findViewById(R.id.instruction);
+        agreeButton = findViewById(R.id.agreeButton);
+        exitButton = findViewById(R.id.exitButton);
 
-        exitButton.setOnClickListener(new View.OnClickListener() {
+        // Inicialmente ocultar los resultados
+        dupletTextView.setVisibility(View.GONE);
+        tripletTextView.setVisibility(View.GONE);
+        agreeButton.setVisibility(View.GONE);
+
+        // Obtener el ViewModel
+        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+
+        // Observadores de LiveData
+        mainViewModel.getDupletCount().observe(this, new Observer<Integer>() {
             @Override
-            public void onClick(View v) {
-                // Cierra la actividad actual (la app se cerrará)
-                finish();
+            public void onChanged(Integer dupletCount) {
+                // Mostrar el resultado de las dupletas
+                dupletTextView.setText("Dupletas: " + dupletCount);
             }
         });
+
+        mainViewModel.getTripletCount().observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer tripletCount) {
+                // Mostrar el resultado de las tripletas
+                tripletTextView.setText("Tripletas: " + tripletCount);
+            }
+        });
+
+        mainViewModel.getCanProceed().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean canProceed) {
+                if (canProceed) {
+                    // Mostrar el botón "De acuerdo" cuando se pueda proceder
+                    agreeButton.setVisibility(View.VISIBLE);
+                } else {
+                    // Ocultar el botón "De acuerdo" si no se puede proceder
+                    agreeButton.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        // Botón "Calcular"
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String input = playerCountEditText.getText().toString();
 
                 if (input.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Por favor ingresa un número válido", Toast.LENGTH_SHORT).show();
+                    // Si no se ingresó un número, mostrar un mensaje de error
+                    Toast.makeText(MainActivity.this, "Por favor ingrese un número de jugadores", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 int playerCount = Integer.parseInt(input);
-                calculateCombinations(playerCount);
 
-                // Hacer visible el botón "De acuerdo"
-                agreeButton.setVisibility(View.VISIBLE);
+                // Calcular las dupletas y tripletas a través del ViewModel
+                mainViewModel.calculateCombinations(playerCount);
+
+                // Cambiar la visibilidad de los resultados a VISIBLE
+                dupletTextView.setVisibility(View.VISIBLE);
+                tripletTextView.setVisibility(View.VISIBLE);
             }
         });
 
+        // Botón "De acuerdo" (llevar al marcador)
         agreeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Una vez el usuario haga clic en "De acuerdo", se puede navegar a la siguiente pantalla
+                // Obtener el número de jugadores del EditText
+                String input = playerCountEditText.getText().toString();
+                int playerCount = Integer.parseInt(input);
+
+                // Crear un Intent para ir a la pantalla de marcador (ScoreActivity)
                 Intent intent = new Intent(MainActivity.this, ScoreActivity.class);
-                startActivity(intent);  // Esto abrirá la pantalla ScoreActivity
+                intent.putExtra("playerCount", playerCount);  // Pasar el número de jugadores
+
+                // Iniciar la nueva actividad
+                startActivity(intent);
             }
         });
-    }
 
-    private void calculateCombinations(int playerCount) {
-        if (playerCount < 2) {
-            Toast.makeText(this, "El número de jugadores debe ser al menos 2", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // Calcular el número de dupletas (parejas)
-        int dupletCount = playerCount / 2;  // Divide el número de jugadores entre 2
-        int remainingPlayers = playerCount % 2;  // Jugadores sobrantes después de hacer dupletas
-
-        // Si sobra un jugador, deshacemos una dupleta para formar una tripleta
-        if (remainingPlayers == 1 && dupletCount > 0) {
-            dupletCount--;  // Quitamos una dupleta
-            remainingPlayers = 0;  // Ya no queda ningún jugador sobrante
-        }
-
-        // Ahora calculamos cuántas tripletas se pueden formar
-        int tripletCount = (playerCount - dupletCount * 2) / 3;  // Calculamos el número de tripletas
-
-        // Mostrar los resultados en los TextView correspondientes
-        dupletTextView.setText("Dupletas: " + dupletCount);
-        tripletTextView.setText("Tripletas: " + tripletCount);
-
-        // Hacer visibles los resultados
-        dupletTextView.setVisibility(View.VISIBLE);
-        tripletTextView.setVisibility(View.VISIBLE);
+        // Botón "Salir" para salir de la aplicación
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // Cierra la actividad y termina la app
+            }
+        });
     }
 }
